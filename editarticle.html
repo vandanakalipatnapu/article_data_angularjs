@@ -1,0 +1,71 @@
+<html ng-app = "app2">
+	<style>
+		.clr{color:red;}
+		.star{color:red;}
+	</style>
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<body>
+		<div class="container" ng-controller="formsController">
+		<center><h2 class="text-danger">Edit Article</h2></center>
+		<hr/>
+		
+
+			 <form class="form-horizontal form-success" name = "articleform" role = "form"><!--form starting -->
+		    
+			    <div class="form-group has-success" ><!--title div starting-->
+			      <label class="control-label col-sm-4" for ="title"><span class="star">*</span>Title:</label>
+			       		
+			    <div class="col-sm-4"><!--title div starting-->
+			        <input type="text" name="title" ng-model="article.title" class="form-control" placeholder="Title" ng-pattern="/[a-z|A-Z|]/"required/>
+			        		
+			        <span ng-show = "articleform.title.$dirty && articleform.title.$invalid">
+			        <span ng-show = "articleform.title.$error.required " class = "clr">title is required</span>
+			        <!-- <span ng-show = "articleform.title.$error.pattern" class = "clr">Enter title in correct format</span> -->
+			    </div> 
+			  	</div><!--title div ending-->
+
+			  	<div class = "form-group has-success"><!--text div starting-->
+		      		<label class = "control-label col-sm-4" for = "text"><span class = "star">*</span>Text: </label>
+					
+				<div class = "col-sm-4">
+					<textarea name = "text" ng-model = "article.text" class = "form-control" placeholder="text" ng-pattern = "/[a-z|A-Z]/" required/></textarea>
+		      		
+		      		<span ng-show = "articleform.text.$dirty && articleform.text.$invalid">
+		      		<span ng-show = "articleform.text.$error.required" class = "clr">text is required</span>
+		      		<!-- <span ng-show = "articleform.text.$error.pattern"class = "clr">Enter valid text</span> -->
+		      	</div>
+				</div><!--text div ending-->
+
+				<div class = "form-group has-success"><!--category div starting-->
+		  			<label class = "control-label col-sm-4" for = "category">Categories:</label>
+		  		<div  class = "col-sm-4">	
+		  			<select ng-model="article.category_id" class = "form-control">
+    					<option ng-repeat="category in categories" value = "{{category.id}}">{{category.name}}</option>
+    				</select>
+		  		</div>
+		  		</div><!--category div ending-->
+
+		  		<div class="form-group has-success"><!--image div starting-->
+          			<label  for="article.image" class="control-label col-sm-4" fo = "image">Image:</label>
+          		<div class = "col-sm-4">
+          			<input type="file" file-model="article.image"  accept=".png,.jpg,.jpeg" id="file1" name="file1"/>
+        		</div><!--image div ending--><br/><br/>
+       
+				<div class="form-group"><!--buttons div starting-->
+		     		<div class="col-sm-offset-4 col-sm-4">
+		     			<input type="submit" value="Update" class= "btn btn-info btn-sm" ng-click = "updatearticle(article.id);">
+		     			<a href = "#allarticles" class = "btn btn-sm btn-info">All Articles</a>
+		     		</div>
+		    	</div><!--buttons div ending-->
+
+		  	</form><!--form ending-->
+
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+  		
+  		<script src = "articleform.js"></script>
+	</body>
+</html>

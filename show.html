@@ -1,0 +1,27 @@
+<html>
+
+	<body>
+		<div class = "container">
+			<div class = "text-success">Title: {{show.title}}<br/></div>
+			<div class = "text-success">Description: {{show.text}}<br/></div>
+			<div class = "text-success">Category: {{show.category_id}}<br/></div>
+			<!-- <div class = "text-success">Image : {{show.image}}<br/></div> -->
+			<img ng-src="/home/vandana/work/article_data/public/{{show.image['url']}}">
+			<!-- <img ng-src="/home/vandana/Desktop/{{show.image['url']}}"> -->
+			{{show.image['url']}}
+			<hr/>
+			<h3 class = "text-danger">Comments:</h3>
+			<div ng-repeat = "comment in comment_show">
+				<div class = "text-success">id: {{comment.id}}<br/></div>
+				<div class = "text-success">commenter: {{comment.commenter}}<br/></div>
+				<div class = "text-success">Description: {{comment.body}}<br/></div>
+				<hr/>
+			</div>
+				<hr/>
+			<a href = "#newcomment">New Comment</a>|
+			<a href = "homepage.html">Home</a>|
+		
+		</div>
+
+	</body>
+</html>

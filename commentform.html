@@ -1,0 +1,75 @@
+<html ng-app = "app2">
+	<style>
+		.clr{color:red;}
+		.star{color:red;}
+	</style>
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+	<body>
+		<div class = "container" ng-controller = "formsController">
+			
+		<center><h2 class = "text-danger">Comment</h2></center>
+		<hr/>
+		
+
+			 <form class="form-horizontal form-success" name = "commentform" role = "form"><!--form starting -->
+
+			   <div class="form-group has-success" ><!--commenter div starting-->
+			      <label class="control-label col-sm-4" for ="commenter"><span class="star">*</span>Commenter:</label>
+			       		
+			    <div class="col-sm-4"><!--title div starting-->
+			        <input type="text" name="commenter" ng-model="comment.commenter" class="form-control" placeholder="commenter" ng-pattern="/[a-z|A-Z|]/"required/>
+			        		
+			        <span ng-show = "commentform.commenter.$dirty && commentform.commenter.$invalid">
+			        <span ng-show = "commentform.commenter.$error.required " class = "clr">commenter is required</span>
+			        <!-- <span ng-show = "articleform.title.$error.pattern" class = "clr">Enter title in correct format</span> -->
+			    </div> 
+			  	</div><!--commenter div ending-->
+		    
+		    
+		    <div class = "form-group has-success"><!--description div starting-->
+		      <label class = "control-label col-sm-4" for = "description"><span class = "star">*</span>Description: </label>
+
+		      <div class = "col-sm-4">
+
+		      	<textarea name = "body" ng-model = "comment.body" class = "form-control" placeholder="body" ng-pattern = "/[a-z|A-Z]/" required/></textarea>
+		      		
+		      	<span ng-show = "commentform.body.$dirty && commentform.body.$invalid">
+		      	<span ng-show = "commentform.body.$error.required" class = "clr">text is required</span>
+		      	<span ng-show = "commentform.body.$error.pattern"class = "clr">Enter text in valid pattern</span>
+		      </div>
+
+			</div><!--description div ending-->
+
+			
+			
+				
+			<div class="form-group"><!--buttons div starting-->
+		     	<div class="col-sm-offset-4 col-sm-4">
+		     		<input type="submit" value="Submit" class= "btn btn-info btn-sm" ng-click="createcomment(comment,article_id)"/>
+		     	
+
+		     	
+		     	</div>
+		    </div><!--buttons div ending-->
+
+		  </form>
+		
+		
+		 
+		</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+  		<script src = "postform.js"></script>
+
+	</body>	
+
+</html>
+
+

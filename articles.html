@@ -1,0 +1,41 @@
+<html ng-app = "app2">
+
+
+	<body>
+		<div class = "container">
+			<table class = "table table-hover table-stripped">
+				<tr>
+					<th>Title</th>
+					<th>Text</th>
+					<th>Category</th>
+					<th>Image</th>
+					<th>Actions</th>
+				</tr>
+				
+				<tr ng-repeat = "article in articles">
+					<td>{{article.title}}</td>
+					<td>{{article.text}}</td>
+					<td>{{article.category_id}}</td>
+					<td>{{article.image}}</td>
+					<!-- <td><img src="/home/vandana/work/article_data/app/assets/images{{article.image}}"></td> -->
+
+					
+        
+       
+					<td><a href = "#edit" ng-click = "editarticle(article.id)">Edit</a></td>
+					<td><a href = "#showarticle" ng-click = "showdata(article.id)">Show</a></td>
+					<td><a href = "#">Delete</a></td>
+				</tr>
+				
+			</table>
+			<a href = "homepage.html">Back</a>
+
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+			<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		</div>
+
+		<script src = "articleform.js"></script>
+	</body>
+</html>
